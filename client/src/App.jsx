@@ -11,12 +11,14 @@ import Publications from './pages/Publications'
 import SignUp from './pages/SignUp'
 import LogIn from './pages/LogIn'
 import Research from './pages/Research'
-
-
+import Header from './components/Header'
+import Nav from './components/Nav'
 export default function App () {
   return (
     
     <BrowserRouter>
+    <Nav/>   
+     <Header/>
     <Routes>
       <Route path ="/" element= {<Home/>}/>
       <Route path ="/Contact" element= {<Contact/>}/>

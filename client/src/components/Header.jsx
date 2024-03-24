@@ -8,35 +8,36 @@ export default function Header() {
   const path = useLocation().pathname;
 
   return (
-    <Navbar className='border-b-2'>
-     
-      <div className="flex items-center space-x- "> {/* Adjust padding here */}
-        <Link to='/' className='self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white'>
-          <span className='px-2 py-1'>
-            {/* Insert your logo image here */}
-          </span>
-          Blog
-        </Link>
-        <form className='flex items-center'>
-          <TextInput
-            type='text'
-            placeholder='Search...'
-            rightIcon={AiOutlineSearch}
-            className='hidden lg:inline'
-          />
-          </form>
-          <Button className='w-12 h-10 lg:hidden ml-2' color='gray' pill>
-            <AiOutlineSearch />
-          </Button>
-          <div className=' rounded-full'>
-          <Button className='w-12 h-10 hidden sm:inline ' color='gray' pill>
-            <FaMoon />
-          </Button>
-        </div>
+    
+    <Navbar className=''>
+      
         
+      <Link to='/' className='lg:hidden'>
+          <span>CSLab</span>
+          
+        </Link>
+        
+ <Link to='/' className='hidden sm:inline    '>
+          
+          <span className='px-2 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg text-white'>CSLab</span>
+        </Link>
+      
+      
+      <div className='flex gap-2 md:order-2 hidden lg:inline'>
+        
+         
+        <Link to='/sign-in'>
+            <Button gradientDuoTone='purpleToBlue' outline>
+              Sign In
+            </Button>
+          </Link>
+          
       </div>
+
+        
         <Navbar.Toggle />
-        <Navbar.Collapse>
+        <Navbar.Collapse className=''>
+        
           <Navbar.Link active={path === '/'} as={'div'}>
             <Link to='/'>Home</Link>
           </Navbar.Link>
@@ -65,10 +66,13 @@ export default function Header() {
             <Link to='/Research'>Researchs</Link>
           </Navbar.Link>
           
+          
         </Navbar.Collapse>
-        
+
+      
       
       
     </Navbar>
+
   );
 }
