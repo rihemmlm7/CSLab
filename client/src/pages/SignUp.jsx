@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Alert, Button, Label, Spinner, TextInput } from 'flowbite-react';
+import { Alert, Button,Checkbox, Label, Spinner, TextInput } from 'flowbite-react';
 import { Link ,useNavigate} from 'react-router-dom';
 
 const SignUp = () => {
@@ -55,9 +55,9 @@ const SignUp = () => {
     <div className='min-h-screen mt-20'>
       <div className='flex p-3 max-w-3xl mx-auto flex-col md:flex-row md:items-center gap-5'>
         {/* left side */}
-        <div className='flex-1'>
+        <div className='flex-1 pb-60'>
           <Link to='/' className='hidden sm:inline'>
-            <span className='px-2 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg text-white'>
+            <span className='px-2 py-1 bg-[#FF7000] rounded-lg text-white'>
               CSLab
             </span>
           </Link>
@@ -98,7 +98,11 @@ const SignUp = () => {
                 name='password'
               />
             </div>
-            <Button gradientDuoTone='purpleToPink' type='submit' disabled={loading}>
+            <div className="flex items-center gap-2">
+          <Checkbox id="remember" />
+          <Label htmlFor="remember">Remember me</Label>
+         </div>
+            <Button gradientMonochrome="cyan" type='submit' disabled={loading}>
               {loading ? (
                 <> <Spinner size='sm'/>
                 <span className='pl-3'>Loading...</span></>

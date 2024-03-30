@@ -17,9 +17,9 @@ export default function Header() {
           
         </Link>
         
- <Link to='/' className='hidden sm:inline    '>
+ <Link to='/' className='hidden lg:inline    '>
           
-          <span className='px-2 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg text-white'>CSLab</span>
+          <span className='px-2 py-1 bg-[#FF7000] rounded-lg text-white'>CSLab</span>
         </Link>
       
       
@@ -27,7 +27,7 @@ export default function Header() {
         
          
         <Link to='/Sign-up'>
-            <Button gradientDuoTone='purpleToBlue' outline>
+            <Button class='bg-[#FF7000] text-white font-mono rounded-3xl'>
               Sign-up
             </Button>
           </Link>
