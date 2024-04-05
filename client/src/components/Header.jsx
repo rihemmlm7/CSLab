@@ -22,8 +22,15 @@ export default function Header() {
           <span className='px-2 py-1 bg-[#FF7000] rounded-lg text-white'>CSLab</span>
         </Link>
       
-      
-      <div className='flex gap-2 md:order-2 hidden lg:inline'>
+        <div className='flex gap-2 md:order-1 hidden lg:inline'>
+  <Link to='/Log-in'>
+    <Button class="border-[#FF7000] text-[#FF7000] font-semibold rounded-3xl border-solid border-[1.5px] border-[#FF7000] ">
+      Log in
+    </Button>
+  </Link>
+</div>
+
+      <div className='flex gap-2 md:order-1 hidden lg:inline'>
         
          
         <Link to='/Sign-up'>
@@ -33,6 +40,7 @@ export default function Header() {
           </Link>
           
       </div>
+      
 
         
         <Navbar.Toggle />

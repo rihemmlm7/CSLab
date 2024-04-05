@@ -27,9 +27,9 @@ export default function Nav() {
         {/* Left group */}
         <div className="flex items-center hidden lg:flex">
           {/* Phone number with icon */}
-          <Link to="/phone"><MdPhone className="text-[#FF7000] mx-1" /></Link>
+          <Link to="/phone"><MdPhone className="text-[#FF7000] " /></Link>
           <span className="text-sm text-gray-600">+123-0759351380</span>
-          <div className="w-4 h-4 border-l-2 border-[#FF7000] mx-2"></div>
+          <div className="w-4 h-4 border-l-2 border-[#FF7000] mx-1"></div>
           {/* Icons with links */}
           <Link to="/facebook"><FaFacebook className="text-[#FF7000] mx-1" /></Link>
           <Link to="/whatsapp"><FaWhatsapp className="text-[#FF7000] mx-1" /></Link>
@@ -38,7 +38,7 @@ export default function Nav() {
         {/* Empty space */}
         
         {/* Right group */}
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-1">
        
           <form className='flex items-center'>
             <TextInput
@@ -52,12 +52,12 @@ export default function Nav() {
           <Button className='w-12 h-10 lg:hidden ml-2' color='gray'>
             <AiOutlineSearch />
           </Button>
-          <Button className='w-12 h-10' color='gray' pill>
+          <Button className='w-11 h-10' color='gray' pill>
             <FaMoon />
           </Button>   {/* Language selector button */}
           <div className="relative">
             <div className="relative inline-block text-left">
-              <Button className='w-14 h-10' color='gray' pill onClick={toggleDropdown}>
+              <Button className='w-14 h-10' color='gray' pill onClick={toggleDropdown} class="border-none">
                 <FaGlobe />
                 <span className="ml-1">{selectedLanguage.slice(0, 2)}</span> {/* Add space with ml-1 class */}
                 <FaAngleDown className="w-4 h-4 pt-1" />

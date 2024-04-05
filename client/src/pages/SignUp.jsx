@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Alert, Button,Checkbox, Label, Spinner, TextInput } from 'flowbite-react';
 import { Link ,useNavigate} from 'react-router-dom';
 
-const SignUp = () => {
+export default function SignUp(){
   const [formData, setFormData] = useState({});
   const [errorMessages, setErrorMessages] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -62,7 +62,7 @@ const SignUp = () => {
             </span>
           </Link>
           <p className='text-sm mt-5'>
-            you can log in with your email and password or with Google
+            you can Sign up with your email and password or with Google
           </p>
         </div>
         {/* right side */}
@@ -127,4 +127,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+
