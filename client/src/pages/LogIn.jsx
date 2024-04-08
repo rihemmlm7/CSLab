@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
 import { Alert, Button,Checkbox, Label, Spinner, TextInput } from 'flowbite-react';
 import { Link ,useNavigate} from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  signInStart,
+  signInSuccess,
+  signInFailure,
+} from '../redux/user/UserrSlice';
 
 export default function LogIn(){
   const [formData, setFormData] = useState({});
-  const [errorMessages, setErrorMessages] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const { loading, error: errorMessage } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
   const navigate=useNavigate();
 
   const handleChange = (e) => {
@@ -15,19 +21,16 @@ export default function LogIn(){
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Reset error messages
-    setErrorMessages(null);
 
     // Check for empty fields
     if ( !formData.email || !formData.password) {
-      return setErrorMessages('Please fill out all fields');
+      return dispatch(signInFailure('Please fill all the fields'));
     }
 
-    setLoading(true);
+    
 
     try {
-      setLoading(true);
-      setErrorMessages(null);
+      dispatch(signInStart());
       const res = await fetch('/api/auth/log-in', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -37,18 +40,18 @@ export default function LogIn(){
       const data = await res.json();
 
       if (data.success === false) {
-        setErrorMessages(data.message);
+        dispatch(signInFailure(data.message));
       } 
-        setLoading(false);
+       
         if(res.ok){
+          dispatch(signInSuccess(data));
           navigate('/');
         }
     } catch (error) {
-      setErrorMessages( error,message);
-      setLoading(false);
+      dispatch(signInFailure(error.message));
     }
 
-    setLoading(false);
+  
   };
 
   return (
@@ -103,14 +106,14 @@ export default function LogIn(){
           </form>
           <div className='flex gap-2 text-sm mt-5'>
             <span> Dont Have an account ? </span>
-            <Link to='/signup' className='text-blue-500'>
+            <Link to='/Sign-up' className='text-blue-500'>
               Sign up
             </Link>
           </div>
         </div>
-        {errorMessages && (
+        {errorMessage && (
           <Alert className='mt-5' color='failure'>
-            {errorMessages}
+            {errorMessage}
           </Alert>
         )}
       </div>
