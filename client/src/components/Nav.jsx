@@ -1,16 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { AiOutlineSearch } from 'react-icons/ai';
-import { FaMoon, FaFacebook, FaWhatsapp, FaLinkedin, FaGlobe, FaAngleDown } from 'react-icons/fa';
+import { FaMoon, FaFacebook, FaWhatsapp, FaLinkedin, FaGlobe, FaAngleDown ,FaSun} from 'react-icons/fa';
 import { Navbar, TextInput, Button } from 'flowbite-react';
 import { MdPhone } from 'react-icons/md';
 import { useLanguage } from '../LanguageContext'; // Import the useLanguage hook
+import { toggleTheme } from '../redux/theme/themeSlice';
+import { useSelector, useDispatch } from 'react-redux';
+import './custom-styles.css';
 
 export default function Nav() {
   const { language, changeLanguage } = useLanguage();
   const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
   const [selectedLanguage, setSelectedLanguage] = React.useState(language);
-
+  const { theme } = useSelector((state) => state.theme);
+  const dispatch = useDispatch();
   const handleChangeLanguage = (lang) => {
     setSelectedLanguage(lang);
     changeLanguage(lang);
@@ -28,7 +32,8 @@ export default function Nav() {
         <div className="flex items-center hidden lg:flex">
           {/* Phone number with icon */}
           <Link to="/phone"><MdPhone className="text-[#FF7000] " /></Link>
-          <span className="text-sm text-gray-600">+123-0759351380</span>
+          <Link to='/' className="text-sm">+123-0759351380</Link>
+      
           <div className="w-4 h-4 border-l-2 border-[#FF7000] mx-1"></div>
           {/* Icons with links */}
           <Link to="/facebook"><FaFacebook className="text-[#FF7000] mx-1" /></Link>
@@ -38,7 +43,7 @@ export default function Nav() {
         {/* Empty space */}
         
         {/* Right group */}
-        <div className="flex items-center space-x-1">
+        <div className="flex items-center space-x-1 ">
        
           <form className='flex items-center'>
             <TextInput
@@ -52,12 +57,22 @@ export default function Nav() {
           <Button className='w-12 h-10 lg:hidden ml-2' color='gray'>
             <AiOutlineSearch />
           </Button>
-          <Button className='w-11 h-10' color='gray' pill>
-            <FaMoon />
+          <Button
+          
+          className='w-12 h-10 hidden sm:inline border-none '
+          color='gray'
+          pill
+          onClick={() => dispatch(toggleTheme())}
+        >
+          {theme === 'light' ? <FaSun /> : <FaMoon />}
           </Button>   {/* Language selector button */}
           <div className="relative">
             <div className="relative inline-block text-left">
-              <Button className='w-14 h-10' color='gray' pill onClick={toggleDropdown} class="border-none">
+              <Button className='w-14 h-10 border-none ' 
+              color='gray' 
+              pill 
+              onClick={toggleDropdown}
+               style={{ outline: 'none' }}>
                 <FaGlobe />
                 <span className="ml-1">{selectedLanguage.slice(0, 2)}</span> {/* Add space with ml-1 class */}
                 <FaAngleDown className="w-4 h-4 pt-1" />
