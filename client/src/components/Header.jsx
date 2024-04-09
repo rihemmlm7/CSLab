@@ -24,9 +24,9 @@ export default function Header() {
       
         <div className='flex gap-2 md:order-1 hidden lg:inline'>
   <Link to='/Log-in'>
-    <Button class="border-[#FF7000] text-[#FF7000] font-semibold rounded-3xl border-solid border-[1.5px] border-[#FF7000] ">
+    <button className="border-[#FF7000] text-[#FF7000] font-semibold rounded-3xl w-[85px] h-8 border-solid border-[1.5px] border-[#FF7000] ">
       Log in
-    </Button>
+    </button>
   </Link>
 </div>
 
@@ -34,9 +34,9 @@ export default function Header() {
         
          
         <Link to='/Sign-up'>
-            <Button class='bg-[#FF7000] text-white font-mono rounded-3xl'>
+            <button class='bg-[#FF7000] w-[85px] h-8 text-white font-mono rounded-3xl'>
               Sign-up
-            </Button>
+            </button>
           </Link>
           
       </div>

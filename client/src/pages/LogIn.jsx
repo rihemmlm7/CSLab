@@ -7,6 +7,7 @@ import {
   signInSuccess,
   signInFailure,
 } from '../redux/user/UserrSlice';
+import OAuth from '../components/OAuth';
 
 export default function LogIn(){
   const [formData, setFormData] = useState({});
@@ -101,8 +102,9 @@ export default function LogIn(){
                 <> <Spinner size='sm'/>
                 <span className='pl-3'>Loading...</span></>
                
-              ): 'Sign up'}
+              ): ('Log in')}
             </Button>
+            <OAuth/>
           </form>
           <div className='flex gap-2 text-sm mt-5'>
             <span> Dont Have an account ? </span>
