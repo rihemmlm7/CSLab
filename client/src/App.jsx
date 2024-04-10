@@ -17,8 +17,7 @@ import LogIn from './pages/LogIn';
 import Research from './pages/Research';
 
 import Feeter from './components/Feeter';
-
-
+import PrivateRoute from './components/PrivateRoute';
 export default function App() {
   return (
     <Router>
@@ -29,7 +28,9 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/Contact" element={<Contact />} />
           <Route path="/About" element={<About />} />
-          <Route path="/Dashboard" element={<Dashboard />} />
+          <Route element={<PrivateRoute />}>
+          <Route path='/Dashboard' element={<Dashboard />} />
+        </Route>
           <Route path="/Members" element={<Members />} />
           <Route path="/News" element={<News />} />
           <Route path="/Projects" element={<Projects />} />
