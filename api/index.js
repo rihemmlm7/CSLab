@@ -4,7 +4,7 @@ import dotenv from'dotenv';
 {/* it for masque lien database from github */}
 import userRoutes from './routes/user.route.js';
 import authRoutes from './routes/auth.route.js';
-
+import cookieParser from 'cookie-parser';
 
 dotenv.config();
 {/* that mean virfy if monogo is connected if change psw make error */}
@@ -17,6 +17,7 @@ console.log(err);
 })
 const app = express();
 app.use(express.json());
+app.use(cookieParser());
 app.listen(3000,() =>{
     console.log('server is running on port 3000')
 
