@@ -38,7 +38,7 @@ export default function Header() {
           <span className='px-2 py-1 bg-[#FF7000] rounded-lg text-white'>CSLab</span>
         </Link>
       
-        <div className='flex gap-2 md:order-1 hidden lg:inline'>
+        <div className='flex gap-2 md:order-3 hidden lg:inline '>
         {currentUser ? (
           <Dropdown
             arrowIcon={false}
@@ -69,19 +69,19 @@ export default function Header() {
     </button>
   </Link>
 )}
-     </div>
+    
 
-      <div className='flex gap-2 md:order-1 hidden lg:inline'>
+     <div className={currentUser ? 'hidden' : 'lg:inline'}>
         
          
         <Link to='/Sign-up'>
-            <button class='bg-[#FF7000] w-[85px] h-8 text-white font-mono rounded-3xl'>
+            <button class='bg-[#FF7000] w-[85px] h-8 text-white font-mono rounded-3xl mx-3'>
               Sign-up
             </button>
           </Link>
           
       </div>
-          
+     </div>      
 
         
         <Navbar.Toggle />

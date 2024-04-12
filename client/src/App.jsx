@@ -24,6 +24,7 @@ export default function App() {
       <LanguageProvider> {/* Wrap your App with LanguageProvider */}
         <Nav />
         <Header />
+    
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/Contact" element={<Contact />} />

@@ -34,7 +34,7 @@ export default function Nav() {
           <Link to="/phone"><MdPhone className="text-[#FF7000] " /></Link>
           <Link to='/' className="text-sm">+123-0759351380</Link>
       
-          <div className="w-4 h-4 border-l-2 border-[#FF7000] mx-1"></div>
+          <div className="w-4 h-4 border-l-2 border-[#FF7000] mx-4"></div>
           {/* Icons with links */}
           <Link to="/facebook"><FaFacebook className="text-[#FF7000] mx-1" /></Link>
           <Link to="/whatsapp"><FaWhatsapp className="text-[#FF7000] mx-1" /></Link>
@@ -79,7 +79,7 @@ export default function Nav() {
               </Button>
               {/* Dropdown menu */}
               {isDropdownOpen && (
-                <ul className="absolute bg-white shadow-lg rounded-md py-1 mt-2">
+                <ul className="absolute bg-white shadow-lg rounded-md py-1 mt-2"  style={{ zIndex: 1000 }}>
                   <li><button onClick={() => handleChangeLanguage('Arabic')} className="block px-4 py-2 text-gray-800 hover:bg-gray-200 focus:outline-none">Arabic</button></li>
                   <li><button onClick={() => handleChangeLanguage('French')} className="block px-4 py-2 text-gray-800 hover:bg-gray-200 focus:outline-none">French</button></li>
                   <li><button onClick={() => handleChangeLanguage('English')} className="block px-4 py-2 text-gray-800 hover:bg-gray-200 focus:outline-none">English</button></li>
