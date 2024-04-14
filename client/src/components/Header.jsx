@@ -3,10 +3,12 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { FaMoon } from 'react-icons/fa';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
+import { signoutSuccess } from '../redux/user/UserrSlice';
 
 export default function Header() {
   const path = useLocation().pathname;
+  const dispatch = useDispatch();
   const { currentUser } = useSelector((state) => state.user);
   const handleSignout = async () => {
     try {
@@ -90,12 +92,6 @@ export default function Header() {
           <Navbar.Link active={path === '/'} as={'div'}>
             <Link to='/'>Home</Link>
           </Navbar.Link>
-          <Navbar.Link active={path === '/Contact'} as={'div'}>
-            <Link to='/Contact'>Contact</Link>
-          </Navbar.Link>
-          <Navbar.Link active={path === '/About'} as={'div'}>
-            <Link to='/About'>About</Link>
-          </Navbar.Link>
           <Navbar.Link active={path === '/Dashboard'} as={'div'}>
             <Link to='/Dashboard'>Dashboard</Link>
           </Navbar.Link>
@@ -114,7 +110,12 @@ export default function Header() {
           <Navbar.Link active={path === '/Research'} as={'div'}>
             <Link to='/Research'>Researchs</Link>
           </Navbar.Link>
-          
+          <Navbar.Link active={path === '/Contact'} as={'div'}>
+            <Link to='/Contact'>Contact </Link>
+          </Navbar.Link>
+          <Navbar.Link active={path === '/About'} as={'div'}>
+            <Link to='/About'>About </Link>
+          </Navbar.Link>
           
         </Navbar.Collapse>
 
