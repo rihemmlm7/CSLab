@@ -18,20 +18,37 @@ import Research from './pages/Research';
 
 import Feeter from './components/Feeter';
 import PrivateRoute from './components/PrivateRoute';
+
+import OnlyAdminPrivateRoute from './components/OnlyAdminPrivateRoute';
+import CreatePost from './pages/CreatePost';
+import UpdatePost from './pages/UpdatePost';
+import PostPage from './pages/PostPage';
+import ScrollToTop from './components/ScrollToTop';
+import Search from './pages/Search';
+
+
 export default function App() {
   return (
     <Router>
-      <LanguageProvider> {/* Wrap your App with LanguageProvider */}
+      <LanguageProvider>
         <Nav />
         <Header />
-    
+        <ScrollToTop />
+        
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/Contact" element={<Contact />} />
           <Route path="/About" element={<About />} />
+          <Route path='/search' element={<Search />} />
           <Route element={<PrivateRoute />}>
-          <Route path='/Dashboard' element={<Dashboard />} />
-        </Route>
+            <Route path='/Dashboard' element={<Dashboard />} />
+          </Route>
+          <Route element={<OnlyAdminPrivateRoute />}>
+            <Route path='/create-post' element={<CreatePost />} />
+            <Route path='/update-post/:postId' element={<UpdatePost />} />
+          </Route>
+          <Route path='/projects' element={<Projects />} />
+          <Route path='/post/:postSlug' element={<PostPage />} />
           <Route path="/Members" element={<Members />} />
           <Route path="/News" element={<News />} />
           <Route path="/Projects" element={<Projects />} />
@@ -40,6 +57,7 @@ export default function App() {
           <Route path="/Sign-up" element={<SignUp />} />
           <Route path="/Log-in" element={<LogIn />} />
         </Routes>
+        
         <Feeter/>
       </LanguageProvider>
     </Router>

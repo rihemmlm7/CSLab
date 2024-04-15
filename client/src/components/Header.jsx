@@ -92,9 +92,7 @@ export default function Header() {
           <Navbar.Link active={path === '/'} as={'div'}>
             <Link to='/'>Home</Link>
           </Navbar.Link>
-          <Navbar.Link active={path === '/Dashboard'} as={'div'}>
-            <Link to='/Dashboard'>Dashboard</Link>
-          </Navbar.Link>
+          
           <Navbar.Link active={path === '/Members'} as={'div'}>
             <Link to='/Members'>Members</Link>
           </Navbar.Link>
@@ -111,10 +109,10 @@ export default function Header() {
             <Link to='/Research'>Researchs</Link>
           </Navbar.Link>
           <Navbar.Link active={path === '/Contact'} as={'div'}>
-            <Link to='/Contact'>Contact </Link>
+            <Link to='/Contact'>Contact Us </Link>
           </Navbar.Link>
           <Navbar.Link active={path === '/About'} as={'div'}>
-            <Link to='/About'>About </Link>
+            <Link to='/About'>About Us </Link>
           </Navbar.Link>
           
         </Navbar.Collapse>
